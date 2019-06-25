@@ -1,0 +1,154 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{changepage}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{imakeidx}
+\usepackage{appendix}
+\makeindex[columns=3]
+\graphicspath{ {c:/user/Desktop/Latex/} }
+
+\usepackage[left=2.50cm, right=2.50cm]{geometry}
+
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{Diseño y Análisis de Algoritmos}
+\fancyhead[C]{ULS}
+\fancyhead[R]{Ingeniería en Computación}
+
+\begin{document}
+%encabezado 
+%\chanpagestyle{plain}
+%\pagestyle{empty}
+%%\changepage{3cm}{1cm}{-0.5cm}{-0.5cm}{}{-2cm}{}{}{}
+%%\noindent
+
+
+
+{\small
+\begin{tabular}{p{0.626\textwidth} p{0.50\textwidth} }
+\includegraphics[scale=1.2]{Imagenes/logouls.png} &  \includegraphics[scale=0.2]{Imagenes/logocarrera.jpg}
+\end{tabular}
+}
+
+%datos de la caratula
+\begin{center}
+\par\vspace{2cm} %Rspacoo dejado antes del encabezado
+\Huge\textbf{
+Universidad de La Serena\\
+}
+\Huge\textbf{
+Plan General
+}
+\par\vspace{3cm}
+{
+\Large\textbf{Diseño y Análisis de Algoritmos \\  Profesor:   Erick Luciano Castillo Bastias  \\Fecha : Miércoles 26 de Junio  \\
+}
+}
+\par\vspace{2.0cm}
+{
+\large\textbf{Integrantes : \\Fernando López \\ Rodrigo Mamani \\ } 
+}
+\par\vspace{4cm}
+
+\end{center}
+\clearpage
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introducción}
+
+En la siguiente documentación se mostrará y detallara el planteamiento de un software en Java, en el cual tiene como contexto general el Control de Optimización de Inventario para un Local Comercial (Minimarket) llamado “La Rojita”.\\
+Es por esto que se debe desarrollar un software en el cual permita la optimización de la compra de productos por parte del administrador del local comercial (en este caso, llamado “La Rojita”), en el cual el objetivo primordial será obtener el mayor beneficio de aquellas compras, es decir, intentar ahorrar y seleccionar la mayor cantidad de productos que necesitemos para el inventario del local comercial.\\
+Esta optimización se realizará con ayuda de una de las técnicas algorítmicas que estudiamos durante la segunda parte del curso de Diseño y Análisis de Algoritmos, el cual fue de "Problemas de optimización y algoritmos avaros(greedy)", que como sabemos nos ayudará para poder ir decidiendo constantemente que decisión nos llevará a la solución óptima, por ende, la selección inmejorable de los productos más beneficiosos sin sobrepasar el máximo de ingreso que dispondremos para el inventario
+Por lo que primeramente y luego de analizar la problemática que planteamos, nos propusimos a obtener distintos datos de esta empresa con el fin de intentar obtener los datos más relevantes que nos servirán para la comparación de los distintos precios de los productos de cada proveedor; En el cual se realiza la compra para el inventario cada vez que este local comercial lo necesite. Dado a que estaremos constantemente trabajando en conjuntos con los datos arrojados por el local comercial.\\
+
+Algunos de estos datos fueron los siguientes:\\
+\begin{enumerate}
+
+\item Dirigido por: Fernando Ángel López Valdés.
+
+\item Dirección: Independencia 402, más específicamente Local comercial ubicado en Ovalle frente al mercado municipal de esta ciudad. 
+
+\item Artículos más vendidos: Productos de la zona, Abarrotes, Artículos de Librería, Helados, Bebidas, Repostería, Amasandería, Pasajes, entre otros.
+
+\item Trabajadores: De 4 a 3 empleados
+
+\item Horarios: lunes a viernes 7:00AM a 20:00PM.
+          Sábado 9:00AM a 17:00PM.\\
+\end{enumerate}
+
+Las compras para el inventario de “La Rojita” se realizan generalmente en 3 proveedores que realizan sus compras “al por mayor”, estos son:\\
+\begin{enumerate}
+\item Lubba = Ubicado en Independencia 336, Ovalle, Región de Coquimbo\\
+\item La Caserita = Ubicada en Ariztía Oriente 196, OVALLE\\
+\item CCU (Compañía de Cervecerías Unidas) =Ubicada en Carretera SocosOvalle, Km 15, Valle Limari, Comuna Ovalle.\\
+\item Coca Cola Polar S.A = Ubicada Camino A Limarí, Salida Sur - Ovalle\\
+\end{enumerate}
+Blablablasadaasdasdasdsaasasdasdasd
+
+
+
+  
+\section{Ámbito}
+
+    Software desarrollado para un usuario en este caso idealmente el propietario del Local Comercial quien mantiene el constante registro de los productos disponibles y no disponibles en el inventario de su Minimarket. 
+    Al escoger los productos se debe tener en consideración el monto máximo disponible que deberá de gastar para rellenar su inventario.  
+    Por lo que surge la siguiente problemática:
+    Como necesitamos realizar nuestras compras con cautela y cuidado para así no sobrepasar el dinero que tenemos, realizaremos un software él cuál permita demostrar donde será y es más económico tal producto que necesitemos.
+    Es por esto que se creara un software que visualice los costos de compra de productos seleccionados en distintos proveedores de locales comerciales caracterizados por la compra “al por mayor”.
+    Este software es llevado a cabo como parte de la última actividad realizada para el laboratorio del curso de Diseño y Análisis de algoritmos por tanto su ámbito está basado en un usuario exclusivo y momentáneamente (él Profesor Erick Castillo).
+    La interfaz gráfica constara de frames de la librería Swing de Java y permitirá al usuario la interacción de distintos componentes que se integraran al software. 
+    blablablasadaasdasdasdsaasasdasdasd
+    La fiabilidad del software es medianamente simple, ya que al ser una actividad para el curso requeriremos datos personales por parte del usuario, es decir administrador del inventario del Local Comercial “La Rojita”.
+
+
+\section{Alcance}
+
+    
+    Este proyecto de software ira dirigido a el usuario que estará encargado del mantenimiento del inventario del local comercial, necesariamente debería de ser el administrador de este, es decir el jefe, pero en el caso y poniéndonos en un caso hipotético de que aquel delegue a alguien más, este último podrá utilizar el software sin problema alguno en un futuro. 
+    
+
+\section{Restricciones}
+
+   El Software estará diseñado para la optimización de productos solamente de la categoría Bebestibles, haciendo así, una comparación entre todos aquellos productos que cumplan esa condición en cada proveedor para luego realizar la optimización, este es un tema abierto, ya que en un futuro nos propusimos a lograr la optimización de otros tipos de productos por ejemplo Abarrotes.\\ 
+    El software permitirá las comparaciones y a su vez las “compras” de los productos en los locales comerciales más habituales y que por lo general se utiliza en este local comercial para el mantenimiento de su inventario, como ya mencionamos anteriormente esto fue consultado con Don Fernando quien nos facilitó información relevante de sus compras durante el último mes.
+    blablablasadaasdasdasdsaasasdasdasd
+
+
+\section{Meta}
+
+   blablablasadaasdasdasdsaasasdasdasd
+    Realizar un software que perimita la 
+    Comparación de Inventarios en distintos proveedores y/o locales comerciales.
+    (Comparación Productos Bebestibles) -> Para obtener mayor beneficios -> Solución a priori algoritmos de optimización (algoritmo knapsack 0/1)(Programación Dinámica)
+    blablablasadaasdasdasdsaasasdasdasd
+
+\section{Objetivos}
+
+   blablablasadaasdasdasdsaasasdasdasd
+El objetivo de esta actividad será el escoger una idea de proyecto en el cual tenga una problemática que deberemos lograr una solución que se adecue a esta.
+Por lo que deberemos implementar en una GUI una visualización de los distintos productos bebestibles que se venden en el local comercial, para así poder realizar la optimización de cada uno de ellos para luego proceder a una 
+
+Utilizar los temas estudiados y vistos por parte de la teoría durante el curso de Diseño y Análisis de Algoritmos. 
+
+
+
+\end{document}
