@@ -1,7 +1,7 @@
 
 package Modelo;
 
-public class Producto {
+public class Producto implements Comparable<Producto>{
 
     @Override
     public String toString() {
@@ -61,6 +61,11 @@ public class Producto {
 
     public void setPacifico(int pacifico) {
         this.pacifico = pacifico;
+    }
+
+    @Override
+    public int compareTo(Producto p) {
+        return this.producto.compareTo(p.producto);
     }
     
 }

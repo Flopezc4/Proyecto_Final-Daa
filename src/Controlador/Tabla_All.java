@@ -3,18 +3,19 @@ package Controlador;
 
 import javax.swing.table.AbstractTableModel;
 import Modelo.Optimizacion;
+import Modelo.Consultas;
 import Modelo.Producto;
 import java.util.ArrayList;
 
-public class Table extends AbstractTableModel{
-    private ArrayList<Producto> list = new ArrayList<>();
-    private Optimizacion canasta;
+public class Tabla_All extends AbstractTableModel{
+    private ArrayList<Producto> lista_completa = new ArrayList<>();
+    private Consultas consulta;
     
-    public Table(Optimizacion canasta){
-        this.canasta=canasta;
+    public Tabla_All(){
+        consulta = new Consultas();
     }
      public void updatemodel() {
-       list = canasta.getLista();
+         lista_completa= consulta.getAll();
 
     }
     @Override
@@ -28,7 +29,7 @@ public class Table extends AbstractTableModel{
     
     @Override
     public int getRowCount() {
-        return list.size();
+        return lista_completa.size();
     }
 
     @Override
@@ -38,7 +39,7 @@ public class Table extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Producto pro = list.get(rowIndex);
+        Producto pro = lista_completa.get(rowIndex);
         switch(columnIndex){
             case 0: return pro.getCodigo();
             case 1: return pro.getProducto();

@@ -2,7 +2,7 @@ package Vistaa;
 
 import com.sun.javafx.tk.Toolkit;
 
-
+/*
 public class Main {
 
 	public static void main(String[] args) {
@@ -14,3 +14,4 @@ public class Main {
 	}
 
 }
+*/

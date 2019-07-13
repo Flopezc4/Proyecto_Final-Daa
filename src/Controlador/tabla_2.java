@@ -6,15 +6,13 @@ import Modelo.Optimizacion;
 import Modelo.Producto;
 import java.util.ArrayList;
 
-public class Table extends AbstractTableModel{
-    private ArrayList<Producto> list = new ArrayList<>();
-    private Optimizacion canasta;
+public class tabla_2 extends AbstractTableModel{
+    ArrayList<Producto> lista_2 = new ArrayList<>();
     
-    public Table(Optimizacion canasta){
-        this.canasta=canasta;
+    public tabla_2(){
     }
      public void updatemodel() {
-       list = canasta.getLista();
+         //lista_2= list_optimizada();
 
     }
     @Override
@@ -28,7 +26,7 @@ public class Table extends AbstractTableModel{
     
     @Override
     public int getRowCount() {
-        return list.size();
+        return 4;
     }
 
     @Override
@@ -38,7 +36,7 @@ public class Table extends AbstractTableModel{
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Producto pro = list.get(rowIndex);
+        Producto pro = lista_2.get(rowIndex);
         switch(columnIndex){
             case 0: return pro.getCodigo();
             case 1: return pro.getProducto();
