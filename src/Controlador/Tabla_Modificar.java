@@ -21,12 +21,12 @@ public class Tabla_Modificar extends AbstractTableModel{
     @Override
     public String getColumnName(int column){
         switch(column){
-            case 0: return "Codigo";
-            case 1: return "Descripcion";
+            case 0: return "Código";
+            case 1: return "Descripción";
             case 2: return "Lubba";
             case 3: return "Caserita";
             case 4: return "Mayorista";
-            case 5: return "Pacifico";
+            case 5: return "Pacífico";
             default: return "";
         } 
     }

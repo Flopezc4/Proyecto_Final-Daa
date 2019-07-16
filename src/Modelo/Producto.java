@@ -3,13 +3,42 @@ package Modelo;
 
 public class Producto implements Comparable<Producto>{
 
-    @Override
-    public String toString() {
-        return "Producto{" + "codigo=" + codigo + ", producto=" + producto + ", lubba=" + lubba + ", caserita=" + caserita + ", mayorista=" + mayorista + ", pacifico=" + pacifico + '}';
-    }
+
     private int codigo;
     private String producto;
     private int lubba,caserita,mayorista,pacifico;
+    private int valor;
+    private int peso;
+    private String proveedor;
+        
+    public Producto(){
+        super();
+    }
+    
+
+    public int getValor() {
+        return valor;
+    }
+
+    public void setValor(int valor) {
+        this.valor = valor;
+    }
+
+    public int getPeso() {
+        return peso;
+    }
+
+    public void setPeso(int peso) {
+        this.peso = peso;
+    }
+    
+    public String getProveedor() {
+        return proveedor;
+    }
+
+    public void setProveedor(String proveedor) {
+        this.proveedor = proveedor;
+    }
 
     public int getMayorista() {
         return mayorista;
@@ -17,10 +46,6 @@ public class Producto implements Comparable<Producto>{
 
     public void setMayorista(int mayorista) {
         this.mayorista = mayorista;
-    }
-    
-    public Producto(){
-        super();
     }
     
     public int getCodigo(){
@@ -67,5 +92,8 @@ public class Producto implements Comparable<Producto>{
     public int compareTo(Producto p) {
         return this.producto.compareTo(p.producto);
     }
-    
+        @Override
+    public String toString() {
+        return "Producto{" + "codigo=" + codigo + ", producto=" + producto + ", lubba=" + lubba + ", caserita=" + caserita + ", mayorista=" + mayorista + ", pacifico=" + pacifico + '}';
+    }
 }
