@@ -9,9 +9,9 @@ import javax.swing.JOptionPane;
 public class Conexion {
         
     private Connection conexion = null;
-    private final String jbdc = "jdbc:mysql://localhost:3306/proyecto_productos";
+    private final String jbdc = "jdbc:mysql://localhost:3306/proyecto_productos";   //proyecto_productos
     private final String usuario = "root";
-    private final String clave = "-voodoo18";
+    private final String clave = "-voodoo18";                                       //-voodoo18
     
     public Connection getConexion(){
         try{

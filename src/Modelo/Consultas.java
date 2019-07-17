@@ -27,7 +27,9 @@ public class Consultas extends Conexion {
                 p.setCaserita(Integer.parseInt(rs.getString("caserita")));//caserita
                 p.setMayorista(Integer.parseInt(rs.getString("mayorista")));//mayorista
                 p.setPacifico(Integer.parseInt(rs.getString("pacifico")));//pacifc
-
+                p.setValor(Integer.parseInt(rs.getString("valor")));
+                p.setPeso(pesoMinimo(p));
+                p.setProveedor(proveedorMin(p));
                 return true;
             }
             JOptionPane.showMessageDialog(null, "Codigo no encontrado");
@@ -44,6 +46,32 @@ public class Consultas extends Conexion {
 
         }
         return false;
+    }
+     public String proveedorMin(Producto x){
+        int pesoMin = x.getLubba();
+        String minimo = "lubba";
+        if(pesoMin>x.getCaserita()){
+            pesoMin=x.getCaserita();
+            minimo="caserita";
+        }else if(pesoMin >x.getMayorista()){
+            pesoMin=x.getMayorista();
+            minimo="mayorita";
+        }else if(pesoMin > x.getPacifico()){
+            pesoMin = x.getPacifico();
+            minimo="pacifico";
+        }
+        return minimo;
+    }
+    public int pesoMinimo(Producto x){
+        int pesoMin = x.getLubba();
+        if(pesoMin>x.getCaserita()){
+            pesoMin=x.getCaserita();
+        }else if(pesoMin >x.getMayorista()){
+            pesoMin=x.getMayorista();
+        }else if(pesoMin > x.getPacifico()){
+            pesoMin = x.getPacifico();
+        }
+        return pesoMin;
     }
     public boolean modificar(Producto p){
         PreparedStatement ps;

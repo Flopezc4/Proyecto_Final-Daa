@@ -45,6 +45,7 @@ public class Controlador implements ActionListener{
         this.marco.btnEliminarProducto.addActionListener(this);
         this.marco.btn_todo.addActionListener(this);
         this.marco.btn_modificar.addActionListener(this);
+        this.marco.btnOptimizar.addActionListener(this);
         this.Jframe2.jButton1.addActionListener(this);
         this.Jframe2.btn_buscar_3.addActionListener(this);
     }
@@ -85,6 +86,10 @@ public class Controlador implements ActionListener{
         tabla_model.fireTableDataChanged();
 
     }
+    public void actualizarTabla2(){
+        tabla_optima.updatemodel();
+        tabla_optima.fireTableDataChanged();
+    }
     public void limpiar_2(){
         Jframe2.jtext_codigo.setText("");
         Jframe2.jtext_descri.setText("");
@@ -105,15 +110,14 @@ public class Controlador implements ActionListener{
         if(e.getSource()== marco.btnBuscar){
             pro = new Producto();
             try{
-            pro.setCodigo(Integer.parseInt(marco.JtextCodigoProducto.getText()));
-            
+            pro.setCodigo(Integer.parseInt(marco.JtextCodigoProducto.getText()));           
             }catch(NumberFormatException ex){
                 JOptionPane.showMessageDialog(marco,"Error en la busqueda","ERROR", 0);
             }
             if(consultas.buscar(pro)){
-                marco.JtextDescripcionProducto.setText(pro.getProducto());
+               marco.JtextDescripcionProducto.setText(pro.getProducto());
                marco.btnAgregarProducto.setEnabled(true);
-            marco.btnEliminarProducto.setEnabled(true);
+               marco.btnEliminarProducto.setEnabled(true);
             }
         }
         
@@ -179,8 +183,14 @@ public class Controlador implements ActionListener{
             }
             
         }
+        if(e.getSource()== marco.btnOptimizar){
+            
 
+                canasta.setPesoMaximo(Integer.parseInt(marco.valor_maximo.getText()));
+                canasta.Kanask();
+                actualizarTabla2();
+            
+        }
     }
-    
     
 }

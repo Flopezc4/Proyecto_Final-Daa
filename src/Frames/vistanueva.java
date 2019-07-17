@@ -49,7 +49,7 @@ public class vistanueva extends javax.swing.JFrame {
         tablacompras = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnOptimizar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         btn_todo = new javax.swing.JButton();
@@ -76,7 +76,6 @@ public class vistanueva extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Best Buy");
         setMinimumSize(new java.awt.Dimension(1350, 715));
-        setPreferredSize(new java.awt.Dimension(1350, 715));
 
         jPanel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, null, null));
 
@@ -95,8 +94,10 @@ public class vistanueva extends javax.swing.JFrame {
         btnBuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/XIconos/buscar.png"))); // NOI18N
 
         btnAgregarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/XIconos/agregar.png"))); // NOI18N
+        btnAgregarProducto.setEnabled(false);
 
         btnEliminarProducto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/XIconos/borrar.png"))); // NOI18N
+        btnEliminarProducto.setEnabled(false);
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -207,7 +208,7 @@ public class vistanueva extends javax.swing.JFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 0, 255), 2));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/XIconos/optimizar.png"))); // NOI18N
+        btnOptimizar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/XIconos/optimizar.png"))); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Elephant", 0, 14)); // NOI18N
         jLabel1.setText("       ¡Optimizar!");
@@ -222,7 +223,7 @@ public class vistanueva extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnOptimizar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -231,7 +232,7 @@ public class vistanueva extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                .addComponent(btnOptimizar, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
                 .addGap(16, 16, 16))
         );
 
@@ -253,17 +254,19 @@ public class vistanueva extends javax.swing.JFrame {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
+                    .addComponent(btn_todo)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(btn_todo)
-                        .addGroup(jPanel6Layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createSequentialGroup()
+                                .addGap(34, 34, 34)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(12, 12, 12)))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                            .addComponent(jLabel2)
-                            .addGap(12, 12, 12))))
+                            .addContainerGap()
+                            .addComponent(jLabel6))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -517,9 +520,9 @@ public class vistanueva extends javax.swing.JFrame {
     public javax.swing.JButton btnAgregarProducto;
     public javax.swing.JButton btnBuscar;
     public javax.swing.JButton btnEliminarProducto;
+    public javax.swing.JButton btnOptimizar;
     public javax.swing.JButton btn_modificar;
     public javax.swing.JButton btn_todo;
-    public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

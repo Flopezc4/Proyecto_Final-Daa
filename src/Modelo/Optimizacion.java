@@ -8,12 +8,12 @@ import java.util.Comparator;
 public class Optimizacion {
     
     private ArrayList<Producto> Item;
-    private ArrayList<Producto> Mochila;
+    private ArrayList<Producto> Mochila ;
     private int pesoMaximo; // monto maximo a comprar
 
     public Optimizacion(){
      this.Item= new ArrayList<>();
-     this.Mochila = new ArrayList<>();
+     this.Mochila=new ArrayList<>();
      this.pesoMaximo=0;
     }
    
@@ -40,7 +40,7 @@ public class Optimizacion {
         int pesoMochila=0;
         if(Mochila!=null){
             for(Producto x : Mochila){
-                pesoMochila = pesoMochila+pesoMinimo(x); // valos que se compra 
+                pesoMochila = pesoMochila+x.getPeso(); // valos que se compra 
             }
         }
         return pesoMochila;
@@ -54,23 +54,13 @@ public class Optimizacion {
         }
         return valorMochila;
     }
-    public int pesoMinimo(Producto x){
-        int pesoMin = x.getLubba();
-        if(pesoMin>x.getCaserita()){
-            pesoMin=x.getCaserita();
-        }else if(pesoMin >x.getMayorista()){
-            pesoMin=x.getMayorista();
-        }else if(pesoMin > x.getPacifico()){
-            pesoMin = x.getPacifico();
-        }
-        return pesoMin;
-    }
     
-    public void Canasta(){
+    public void Kanask(){
+        Mochila = new ArrayList<>();
         Comparator compador = new Comparator<Producto>() {
             @Override
             public int compare(Producto x, Producto y) {
-                return (int) (x.getValor() / pesoMinimo(x) - y.getValor() / pesoMinimo(y));
+                return (int) (x.getValor() / x.getPeso() - y.getValor() / y.getPeso());
             }
         };
         
@@ -81,9 +71,9 @@ public class Optimizacion {
         
         while (pesoMochila < pesoMaximo && posicion < Item.size()) {
             Producto producto = Item.get(posicion);
-            if (pesoMochila + pesoMinimo(producto) <= pesoMaximo) {
+            if (pesoMochila + producto.getPeso() <= pesoMaximo) {
                 Mochila.add(producto);
-                pesoMochila +=  pesoMinimo(producto);
+                pesoMochila +=  producto.getPeso();
             }
             posicion++;
         }

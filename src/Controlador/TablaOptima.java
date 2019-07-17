@@ -55,22 +55,10 @@ public class TablaOptima extends AbstractTableModel {
             case 2:
                 return pro.getProveedor();
             case 3:
-                return pesoMinimo(pro);
+                return pro.getPeso();
             default:
                 return "";
         }
-    }
-
-    public int pesoMinimo(Producto x) {
-        int pesoMin = x.getLubba();
-        if (pesoMin > x.getCaserita()) {
-            pesoMin = x.getCaserita();
-        } else if (pesoMin > x.getMayorista()) {
-            pesoMin = x.getMayorista();
-        } else if (pesoMin > x.getPacifico()) {
-            pesoMin = x.getPacifico();
-        }
-        return pesoMin;
     }
 
 }

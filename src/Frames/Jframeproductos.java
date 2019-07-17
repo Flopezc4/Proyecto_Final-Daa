@@ -39,6 +39,7 @@ public class Jframeproductos extends javax.swing.JFrame {
         jTable1_productosAll22 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Productos Disponibles para Comprar");
 
         jTable1_productosAll22.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

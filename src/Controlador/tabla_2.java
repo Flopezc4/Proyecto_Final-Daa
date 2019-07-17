@@ -18,8 +18,8 @@ public class tabla_2 extends AbstractTableModel{
     @Override
     public String getColumnName(int column){
         switch(column){
-            case 0: return "Codigo";
-            case 1: return "Descripcion";
+            case 0: return "Código";
+            case 1: return "Descripción";
             default: return "";
         } 
     }

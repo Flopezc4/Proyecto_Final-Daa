@@ -50,6 +50,7 @@ public class JframeModificar extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Modificar Datos Proveedores ");
 
         jButton1.setText("Grabar");
 

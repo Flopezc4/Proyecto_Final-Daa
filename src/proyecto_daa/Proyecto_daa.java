@@ -11,12 +11,14 @@ import Modelo.Optimizacion;
 import Controlador.Controlador;
 import Frames.JframeModificar;
 import Frames.Jframeproductos;
+import Frames.login;
 
 public class Proyecto_daa {
 
 
     public static void main(String[] args) {
 
+        
         Producto pro = new Producto();
         //Vista marco = new Vista();
          vistanueva marco = new vistanueva();
@@ -31,6 +33,10 @@ public class Proyecto_daa {
         controlador.iniciar();
         marco.setVisible(true);
 
+    }
+
+    public void setVisible(boolean b) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
