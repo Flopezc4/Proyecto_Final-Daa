@@ -1,0 +1,323 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{multicol}
+\usepackage{changepage}
+\usepackage{float}
+\usepackage{cite}
+\usepackage{url}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{imakeidx}
+\usepackage{appendix}
+\makeindex[columns=3]
+\graphicspath{ {c:/user/Desktop/Latex/} }
+
+\usepackage[left=2.50cm, right=2.50cm]{geometry}
+
+
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{Diseño y Análisis de Algoritmos}
+\fancyhead[C]{ULS}
+\fancyhead[R]{Ingeniería en Computación}
+
+\begin{document}
+
+\begin{titlepage}
+{\small
+\begin{tabular}{p{0.626\textwidth} p{0.50\textwidth} }
+\includegraphics[scale=1.2]{Logos/logouls.png} &  \includegraphics[scale=0.2]{Logos/logocarrera.jpg}
+\end{tabular}
+}
+
+%datos de la caratula
+\begin{center}
+\par\vspace{1cm} %Rspacoo dejado antes del encabezado
+\begin{center}\rule{1\textwidth}{0.3mm} \end{center}
+\Huge\textbf{
+Informe General:\\ 
+Software Optimización de Productos para Minimarket ``La Rojita''.\\
+ \textbf{\textit{\underline{``Best Buy''}}}}
+\begin{center}\rule{0.9\textwidth}{0.3mm} \end{center}
+\par\vspace{0.5cm}
+
+\normalsize\textsc{
+Facultad de Ciencias.\\ Universidad de La Serena.\\
+}
+\par\vspace{0.5cm}
+{
+\large\textit{
+Para el laboratorio del curso de:\\ 
+}
+\Large\textbf{Diseño y Análisis de Algoritmos. \\  Profesor:   Erick Luciano Castillo Bastias.  \\Fecha: Miércoles 24 de Julio.  \\
+}
+}
+\par\vspace{1cm}
+{
+\large\textbf{Integrantes: \\Fernando López. \\ Rodrigo Mamani. \\ } 
+}
+\par\vspace{4cm}
+
+\end{center}
+\end{titlepage}
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+
+
+\section{\underline{Introducción}}
+En las ciencias de la Computación uno de sus grandes temas y objetivos primordiales, es la solución de problemáticas existentes en diversas áreas. Es por esto que existen una gran gama de técnicas algorítmicas en las cuales explican cómo afrontar dichos problemas para lograr obtener una solución.\\
+Otro tema a considerar es que dichas soluciones no siempre serán las ``más'' óptimas, es decir entra en discusión el tema de tener eficiencia por un lado o eficacia por él otro lado; Unos de los ejemplos más comunes de esto podrían ser si consideramos el tiempo de ejecución, el costo por cada solución, etc.\\
+Por lo que en el desarrollo de este y de los demás documentos(Plan General - Requerimientos: Software Optimización de Productos para Minimarket “La Rojita”.) se plantea una idea creada y basada en uno de los problemas más frecuentes, que es el problema de la mochila (KP, Knapsack problem), en donde como sabemos es un problema de optimización combinatoria,
+es decir, que busca la mejor solución entre un conjunto finito de posibles soluciones a un problema.\\
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.16]{Imagenes/mochila.png}
+\caption{KP, Knapsack Problem(Problema de la Mochila)}
+\end{figure}
+
+En nuestro caso, nos pusimos en el contexto de un local comercial llamado ``La Rojita'', que es un Minimarket en donde constantemente el dueño de este realiza compras de productos en diversos proveedores, los cuales no siempre obtiene un precio ``ideal''(por así decirlo), en cada compra que realiza; {\underline{Por lo que surge la siguiente problemática.}}\\\\
+
+\clearpage
+
+\subsection{Planteamiento de la Problemática}
+    \begin{itemize}
+   \item  Como necesitamos realizar nuestras compras con cautela y cuidado para así no sobrepasar él dinero que tenemos para efectuar la compra, realizaremos un software él cuál permita demostrar donde será y es más económico realizar la compra de los productos que necesitemos dependiendo de cada proveedor respectivamente.\\
+
+\item Es gracias a esto que nos guiaremos y utilizaremos una de las técnicas algorítmicas que estudiamos en teoría, la cual fue de ``Problemas de optimización y algoritmos avaros(Greedy)'' para poder ir decidiendo constantemente que decisión nos llevará a la solución óptima; Es decir, ir decidiendo que distribuidora y/o proveedor será más conveniente la compra, dependiendo de que producto bebestible necesitemos en el inventario del local comercial.\\
+
+\item Por lo que primeramente y luego de analizar la problemática que planteamos, nos propusimos a obtener distintos datos de esta empresa con el fin de intentar obtener los datos más relevantes que nos servirán para la comparación de los distintos precios de los productos de cada proveedor; En el cual se realiza la compra para el inventario cada vez que este local comercial lo necesite. Dado a que estaremos constantemente trabajando en conjuntos con los datos arrojados por el local comercial.\\
+\end{itemize}
+
+
+\subsection{Minimarket "La Rojita".}
+\begin{itemize}
+
+\item Dirigido por: Fernando Ángel López Valdés.
+
+\item Dirección: Independencia 402, más específicamente Local comercial ubicado en Ovalle frente al mercado municipal de esta ciudad. 
+
+\item Artículos más vendidos: Productos de la zona, Abarrotes, Artículos de Librería, Helados, Bebidas, Repostería, Amasandería, Pasajes, entre otros.
+
+\item Trabajadores: De 4 a 3 empleados.
+
+\item Horarios: lunes a viernes 7:00AM a 20:00PM.
+          Sábado 9:00AM a 17:00PM.\\
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.16]{Imagenes/LogoLaRojita.jpeg}
+\caption{Logo Comercial "La Rojita"}
+\end{figure}
+
+
+\subsection{Proveedores:}
+Las compras para el inventario de “La Rojita” se realizan generalmente en 4 proveedores que realizan sus compras “al por mayor”, estos son:\\
+\begin{itemize}
+\item \underline{Lubba} = Ubicado en Independencia 336, Ovalle, Región de Coquimbo.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Imagenes/logolubba.jpg}
+\caption{Logo Comercial "Lubba"}
+\end{figure}
+
+
+\item \underline{La Caserita} = Ubicada en Ariztía Oriente 196, Ovalle, Región de Coquimbo.
+
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Imagenes/logolacaserita.jpg}
+\caption{Logo Supermercado "La Caserita"}
+\end{figure}
+
+\clearpage
+\item \underline{Mayorista 10} = Ubicado en Victoria 435, Ovalle, Región de Coquimbo.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{Imagenes/logomayorista.png}
+\caption{Logo Supermercado "Mayorista 10"}
+\end{figure}
+
+
+
+\item \underline{Distribuidora Gigante del Pacífico} = Ubicado en Calle Nueva 671, Coquimbo(La Cantera).\\
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.2]{Imagenes/logogigante.jpg}
+\caption{Logo Distribuidora "Gigante del Pacífico"}
+\end{figure}
+
+BLABLABLABLABLABLA
+\clearpage
+\section{\underline{Plan General}}
+\subsection{Ámbito}
+
+   El Software desarrollado será orientado para un usuario en este caso idealmente el propietario del Local Comercial quien mantiene en constante registro los productos disponibles y no disponibles en el inventario de su Minimarket. 
+    Al escoger los productos se debe tener en consideración el monto máximo disponible que deberá de gastar para rellenar su inventario.  
+    Por lo que surge la siguiente problemática:\\
+    Como necesitamos realizar nuestras compras con cautela y cuidado para así no sobrepasar el dinero que tenemos, realizaremos un software él cuál permita demostrar donde será y, es más económico realizar la compra de los productos que necesitemos.\\
+    Es por esto que se creara un software que visualice los costos de compra de productos seleccionados en distintos proveedores de locales comerciales caracterizados por la compra “al por mayor”.
+    Este software es llevado a cabo como parte de la última actividad realizada para el laboratorio del curso de Diseño y Análisis de algoritmos por tanto su ámbito está basado en un usuario exclusivo y momentáneamente (él Profesor Erick Castillo).
+
+\subsection{Alcance}
+
+    
+    Este proyecto de software será monousuario, por lo cual ira dirigido a el administrador que estará encargado del abastecimiento del inventario del local comercial.\\
+    En el caso hipotético de que el administrador no se encuentre, el administrador podrá delegar a otro trabajador para que utilice el software.
+    El software indicará al administrador que combinación de productos es la más óptima para una compra en los distintos locales comerciales más habituales y que por lo general se utiliza en este local comercial para el abastecimiento de su inventario.\\ 
+    Como ya mencionamos anteriormente esto fue consultado con Don Fernando quien nos facilitó información relevante de sus compras durante el último mes.
+    
+\subsection{Restricciones}
+
+   \begin{itemize}
+       \item El Software estará diseñado para la optimización de productos solamente de la categoría Bebestibles, haciendo así, una comparación entre todos aquellos productos que cumplan esa condición en cada proveedor para luego realizar la optimización, este es un tema abierto, ya que en un futuro nos propusimos a lograr la optimización de otros tipos de productos por ejemplo Abarrotes.
+  \item El Software no tendrá actualizaciones inmediatas de las listas de precios de los proveedores del Minimarket.
+        \item El Software no tendrá conexión a internet.
+        \item El Software no interactuará con otro software.
+        
+   \end{itemize}
+\subsection{Meta}
+     Realizar un software que permita la comparación de los inventarios de distintos proveedores y/o locales comerciales.Para poder generar una lista la cuál nos indicara que combinación será la de mayor beneficio para las compras del abastecimiento del local comercial.
+     Además el generar documentos que sustenten el proceso de desarrollo del software.
+     Logrando así unir y relacionar conceptos teóricos sobre el curso de Diseño y Análisis de Algoritmos para posteriormente aplicarlos en la práctica. 
+     Concretando así la idea planteada para lograr obtener una solución óptima.
+
+\subsection{Objetivos}
+
+El objetivo de esta actividad será implementar en una GUI una visualización de los distintos productos bebestibles que se venden en el local comercial, para así poder realizar la optimización de cada uno de ellos para luego proceder a una generar una lista con los productos que se deben comprar.\\ 
+Para concretar nuestro objetivo, primero debemos realizar un análisis del problema que queremos solucionar para poder realizar una solución óptima en el marco de los temas estudiados y vistos por parte de la teoría durante el curso de Diseño y Análisis de Algoritmos.\\
+Por lo que, para sintetizar mejor y lograr el objetivo primordial, dividiremos el objetivo general en sub-objetivos que serán los siguientes:
+\begin{itemize}
+\item Adentrarnos nuevamente y poner en práctica lo estudiado durante el desarrollo del semestre.
+\item Realizar un análisis de las problemáticas que existe en el local comercial (Minimarket "La Rojita").
+\item Realizar un estudio, seguido de un análisis de los proveedores en el cuál trabajaremos.
+\item Una vez analizado el contexto general y el entorno en el cuál nos "moveremos", podremos realizar comparaciones de los productos a disposición de cada distribuidor al por mayor ya mencionados.
+\item Utilizar todos los datos obtenidos para realizar una comparación entre cada producto a disposición.
+\item Implementar una GUI relacionado a las necesidades y problemáticas que nos planteamos.
+\end{itemize}
+
+
+\section{Requerimientos}
+
+\subsection{Propósito}
+El documento de Especificación de Requisitos del Software (ERS) está dirigido y será orientado para un usuario en este caso idealmente el propietario del Local Comercial quien mantiene en constante registro los productos disponibles y no disponibles en el inventario de su Minimarket.
+
+
+\subsection{Ámbito del Sistema}
+EL Software a desarrollar llevara por nombre ``Best Buy'' y tendrá por objetivo primordial lograr la optimización del abastecimiento de productos bebestibles en el  Minimarket "La Rojita", el software poseerá limitantes, objetivos y la meta que son detalladas en extenso en el documento:\\ 
+\begin{itemize}
+\item Plan General: Software Optimización de productos para Minimarket "La Rojita", Sección objetivos, meta.
+\end{itemize}
+
+
+\subsection{Definiciones, Acrónimos y Abreviaturas}
+A continuación, se detallará las definiciones, Acrónimos y abreviaturas que se encuentran a lo largo del documento:
+\begin{itemize}
+    \item ERS: Especificación de Requisitos de Software.
+    \item Problemas de Optimización: Problema que busca minimizar o maximizar el valor de una variable a considerar.
+    \item Algoritmos Avaros(Greedy): Estrategia de búsqueda por la cual se sigue una heurística consistente en elegir la opción óptima en cada paso local con la esperanza de llegar a una solución general óptima.
+    \item ``La Rojita'': Minimarket y/o Local Comercial ubicado en la ciudad de Ovalle.
+    \item Inventario: Almacenamiento de todos los productos en venta.
+    \item Proveedores: Distribuidores de productos, permitiendo la venta al por mayor.
+    
+\end{itemize}
+
+\subsection{Referencias}
+\begin{enumerate}
+    \item Documento ``Plan General'' sobre la optimización de productos para Minimarket ``La Rojita'', donde relata los requerimientos funcionales y no funcionales del software, con fecha 26 de Junio.
+        \item Documento ``Informe General'' sobre la optimización de productos para Minimarket ``La Rojita'', donde relata el desarrollo general del software, con fecha 26 de Junio.
+\end{enumerate}
+
+\subsection{Visión General Del Documento}
+En el presente ERS se procederá a describir la problemática y su posible solución a través de las técnicas algorítmicas aprendidas en la teoría del curso.\\
+Además daremos a conocer las restricciones del Software y una posible mejora en futuras versiones.
+
+%\begin{itemize}
+%\item Generación de documentos relacionados a él software, más específico Plan General e Informe General.
+%\item Investigar, estudiar y conocer más en profundidad los tipos de Problemas de Optimización relacionados a maximizar o minimizar una variable. 
+%\item Repasar conceptos sobre la aplicación de la estrategia de búsqueda Greedy para lograr obtener una solución óptima al problema planteado.
+
+%\end{itemize}
+\subsection{Descripción General}
+Creación de un software que le permita indicar al administrador de un local comercial la mejor manera de optimizar el recurso disponible para la compra de los productos para el abastecimiento de su inventario.
+
+\subsubsection{Perspectiva del Producto}
+La creación de este software será independiente considerando algún otro software de la misma índole, ya que deberemos considerar los datos otorgados por el administrador del local, el cual nos facilitó proveniente de cada proveedor con el cual él ha estado utilizando para el suministro del inventario.
+%\\
+%Por lo que la creación de este software será casi de cero, en el cuál se debe considerar y tener en cuenta los puntos mencionados a continuación.
+
+\subsubsection{Funciones del Producto}
+El software desarrollado dará la función de indicar al administrador del Minimarket donde será más conveniente y provechoso la compra de productos para su inventario, por lo que para lograr lo anteriormente mencionado se realizara idealmente con la cooperación de los siguientes puntos:
+\begin{itemize}
+\item Primeramente, si se desea realizar dicha optimización se deberá realizar con ayuda de una de las técnicas algorítmicas que hemos mencionado durante el transcurso del documento, la cuál es de ``Problemas de optimización y algoritmos avaros(Greedy)'', para poder ir decidiendo constantemente que decisión nos llevará a la solución óptima y así obtener que proveedores será más provechoso realizar la compra de los productos.
+
+\item Si se desea ser más específico, un algoritmo que lograría a priori el objetivo sería el de Knapsack problem (el problema de la mochila, comúnmente abreviado por KP), ya que modela una situación análoga al llenar una mochila y además como es un problema de optimización combinatoria, podríamos decir que tiene relación con la idea planteada durante el desarrollo del documento.
+
+\item La interfaz será intuitiva para el usuario destinado a realizar las compras del local comercial; Este software deberá estar dispuesto a entregar de forma rápida los datos al momento de indicar que proveedor será más conveniente, por lo que gran parte del software será y estará construido de forma dinámica, ya que constantemente el usuario deberá estar verificando que producto bebestible
+le hace falta; Así mismo estará continuamente actualizando los valores de los productos de cada proveedor, esto último podrá facilitarse gracias al catálogo y factura de cada proveedor respectivamente. 
+\end{itemize}
+
+\subsubsection{Características de los Usuarios}
+El Software desarrollado será orientado para un usuario ya destinado, quien deberá estar constantemente realizando las compras de los productos del cual esté escaso él Minimarket.
+Es por esto que el usuario en este caso idealmente será el propietario del Local Comercial quien mantiene en constante registro los productos disponibles y no disponibles en el inventario de su almacén. 
+Al escoger los productos se debe tener en consideración el monto máximo disponible que deberá de gastar para rellenar su inventario.  
+
+
+\subsection{Restricciones}
+\begin{itemize}
+       \item El Software estará diseñado para la optimización de productos solamente de la categoría Bebestibles, haciendo así, una comparación entre todos aquellos productos que cumplan esa condición en cada proveedor para luego realizar la optimización, este es un tema abierto, ya que en un futuro nos propusimos a lograr la optimización de otros tipos de productos por ejemplo Abarrotes.
+  \item El Software no tendrá actualizaciones inmediatas de las listas de precios de los proveedores del Minimarket.
+        \item El Software no tendrá conexión a internet.
+        \item El Software no interactuará con otro software.
+        
+   \end{itemize}
+
+\subsection{Suposiciones y Dependencias}
+En este apartado procederemos a detallar algunas dependencias del Software:
+\begin{itemize}
+    \item El Software será desarrollado en Java SE 1.8 lo cual crea una dependencia a la maquina virtual de java para que el Software pueda ser ejecutado.
+    \item EL Software será dependiente de los datos proporcionados por el administrador del Minimarket  y su actualización.
+    \item Suponiendo que el usuario es una persona externa no destinada por el administrador del local, no podría realizar alguna optimización de algún producto, ya que no tendría conocimiento de los productos del inventario del cuál es escaso.  
+\end{itemize}
+\subsection{Requisitos Futuros}
+Esta sección comentara futuras mejoras al sistema, que podrán analizarse e implementarse en un futuro.
+\begin{itemize}
+\item Cómo ya mencionamos nuestra propuesta una vez cumplida la meta a llegar, será el de implementar otros productos que se comercializan en el local comercial, por ejemplo, tipos de Abarrotes, Helados, etc.
+\item Además, otro tema será el de agregar distintos conceptos vistos en el curso de Diseño y Análisis de Algoritmos, que no fueron integrados a este software debido al tiempo acotado que disponemos para llegar a un buen término de este; Uno de ellos son los Grafos, los cuales nos permitirían obtener de forma ideal la ruta más óptima que deberá hacer el administrador del Minimarket cuando necesite obtener productos en los distintos proveedores en los cuáles deberá comprar.
+\end{itemize}
+
+\section{Planificación}
+\subsection{Actividades}
+
+\subsection{Descripción de Procesos}
+
+
+\section{Procesos}
+
+\subsection{Modelo}
+
+
+\subsection{Solución}
+
+\end{document}
