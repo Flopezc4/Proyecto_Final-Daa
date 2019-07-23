@@ -1,14 +1,11 @@
 package Controlador;
 
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import Modelo.Producto;
 import Modelo.Consultas;
 import Frames.vistanueva;
-//import Frames.JDialog_productos;
-//import Frames.JDialog_Modificar;
 import Frames.JframeModificar;
 import Frames.Jframeproductos;
 import Modelo.Optimizacion;
@@ -22,7 +19,6 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import Frames.login;
 
 public class Controlador extends MouseAdapter implements ActionListener {
 
@@ -37,8 +33,6 @@ public class Controlador extends MouseAdapter implements ActionListener {
     public Optimizacion canasta;
     private Jframeproductos Jframe;
     private JframeModificar Jframe2;
-
-
 
     public Controlador(Producto pro, Consultas consultas, vistanueva marco, Optimizacion canasta, Jframeproductos Jframe, JframeModificar Jframe2) {
         this.Jframe = Jframe;
@@ -58,8 +52,6 @@ public class Controlador extends MouseAdapter implements ActionListener {
         this.Jframe2.jButton2.addActionListener(this);
         this.marco.tablacompras.addMouseListener(this);
         this.Jframe2.jTable1.addMouseListener(this);
-        
-
     }
 
     public void iniciar() {
@@ -122,6 +114,7 @@ public class Controlador extends MouseAdapter implements ActionListener {
     public void limpiar() {
         marco.JtextCodigoProducto.setText("");
         marco.JtextDescripcionProducto.setText("");
+        marco.JtextCantidaddeproducto.setText("");
         marco.btnAgregarProducto.setEnabled(false);
         marco.btnEliminarProducto.setEnabled(false);
     }
@@ -143,9 +136,16 @@ public class Controlador extends MouseAdapter implements ActionListener {
         }
 
         if (e.getSource() == marco.btnAgregarProducto) {
-            canasta.agregar(pro);
+            try{
+            int k =Integer.parseInt(marco.JtextCantidaddeproducto.getText());
+            canasta.agregar(pro, k);
+            for(int i=1;i<=k;i++){
+                canasta.agregar(pro);
+            }
+            }catch(Exception ex){
+                JOptionPane.showMessageDialog(marco, "Error Ingresar Cantidad Valida", "ERROR", 0);
+            }
             actualizarTabla();
-            // System.out.println("producto Agregado a el carro");
             limpiar();
         }
 
@@ -221,6 +221,8 @@ public class Controlador extends MouseAdapter implements ActionListener {
                 JOptionPane.showMessageDialog(marco, "Ingrese Monto Mínimo por favor","Error",0);
             }
             canasta.Kanask();
+            marco.jTextField1.setText(Integer.toString(canasta.getValorMochila()-canasta.getPesoMochila()));
+            marco.jTextField2.setText(Integer.toString(canasta.getPesoMochila()));
             actualizarTabla2();
         }
     }

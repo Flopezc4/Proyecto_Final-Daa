@@ -3,11 +3,15 @@ package Controlador;
 import java.util.ArrayList;
 import javax.swing.table.AbstractTableModel;
 import Modelo.Producto;
+import Modelo.productos2;
 import Modelo.Optimizacion;
+import java.util.Iterator;
 
 public class TablaOptima extends AbstractTableModel {
 
     public ArrayList<Producto> productos;
+    public ArrayList<productos2> cantidades;
+    public Producto pro;
     private Optimizacion canasta;
 
     public TablaOptima(Optimizacion canasta) {
@@ -16,7 +20,39 @@ public class TablaOptima extends AbstractTableModel {
 
     public void updatemodel() {
         productos = canasta.getMochila();
+        cantidades = new ArrayList<>();
+        //System.out.println("productos de mochila " + productos);
+        Iterator<Producto> iter = productos.iterator();
+        while (iter.hasNext()) {
+            pro = iter.next();          
+            if (cantidades.isEmpty()) {
+                cantidades.add(new productos2(pro, 1));
+            } else {
+                if(estaElProducto(pro)){
+                    for(productos2 i : cantidades){
+                        if(i.getProducto().getCodigo()==pro.getCodigo()){
+                            i.setCantidad(i.getCantidad()+1);
+                        }
+                    }
+                }else{
+                    cantidades.add(new productos2(pro, 1));
+                }
+            }
+
+        }
+
     }
+    public boolean estaElProducto(Producto pro){
+        Iterator <productos2> iter2 = cantidades.iterator();
+        while(iter2.hasNext()){
+            productos2 x = iter2.next();
+            if(x.getProducto().getCodigo()==pro.getCodigo()){
+                return true;
+            }
+        }
+        return false;
+    }
+
 
     @Override
     public String getColumnName(int column) {
@@ -29,6 +65,8 @@ public class TablaOptima extends AbstractTableModel {
                 return "Proveedor";
             case 3:
                 return "Precio";
+            case 4:
+              return "Cantidad";
             default:
                 return "";
         }
@@ -36,26 +74,31 @@ public class TablaOptima extends AbstractTableModel {
 
     @Override
     public int getRowCount() {
-        return productos.size();
+        return cantidades.size();
+        //return productos.size();
     }
 
     @Override
     public int getColumnCount() {
-        return 4;
+        return 5;
+        //return 4;
     }
 
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
-        Producto pro = productos.get(rowIndex);
+        //Producto pro = productos.get(rowIndex);
+        productos2 pro = cantidades.get(rowIndex);
         switch (columnIndex) {
             case 0:
-                return pro.getCodigo();
+                return pro.getProducto().getCodigo();
             case 1:
-                return pro.getProducto();
+                return pro.getProducto().getProducto();
             case 2:
-                return pro.getProveedor();
+                return pro.getProducto().getProveedor();
             case 3:
-                return pro.getPeso();
+                return pro.getProducto().getPeso();
+            case 4:
+              return pro.getCantidad();
             default:
                 return "";
         }
