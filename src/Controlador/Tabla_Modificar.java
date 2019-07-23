@@ -27,6 +27,7 @@ public class Tabla_Modificar extends AbstractTableModel{
             case 3: return "Caserita";
             case 4: return "Mayorista";
             case 5: return "Pacífico";
+            case 6: return "Valor";
             default: return "";
         } 
     }
@@ -38,7 +39,7 @@ public class Tabla_Modificar extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-       return 6;
+       return 7;
     }
 
     @Override
@@ -51,6 +52,7 @@ public class Tabla_Modificar extends AbstractTableModel{
             case 3: return pro.getCaserita();
             case 4: return pro.getMayorista();
             case 5: return pro.getPacifico();
+            case 6: return pro.getValor();
             default: return "";
         } 
     }

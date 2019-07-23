@@ -31,7 +31,7 @@ public class Optimizacion {
     }
     public void agregar(Producto pro){
         Item.add(pro);
-        System.out.println(Item);
+        //System.out.println(Item);
     }
     public ArrayList<Producto> getLista(){
         return Item;
@@ -63,7 +63,6 @@ public class Optimizacion {
                 return (int) (x.getValor() / x.getPeso() - y.getValor() / y.getPeso());
             }
         };
-        
         int pesoMochila = 0;
         Collections.sort(Item, compador);
         Collections.reverse(Item);  

@@ -24,7 +24,7 @@ public class login extends javax.swing.JFrame {
      */
     public login() {
         this.setIconImage(new ImageIcon(getClass().getResource("/XIconos/BestBuysoloicono.jpg")).getImage());
-        
+        setLocationRelativeTo(null);
         initComponents();
         
     }
@@ -101,12 +101,9 @@ public class login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnEntrar)
-                .addGap(45, 45, 45))
+                    .addComponent(Password, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEntrar))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_END);
@@ -143,16 +140,8 @@ public class login extends javax.swing.JFrame {
         String Pass = new String(Password.getPassword());
         
         if(txtUsuario.getText().equals(Usuario)&&Pass.equals(Contraseña)){
-            
-        /*Proyecto_daa asd = new Proyecto_daa();
-        asd.setVisible(true);
-        dispose();*/
         Producto pro = new Producto();
-        //Vista marco = new Vista();
          vistanueva marco = new vistanueva();
-        
-        //JDialog_productos dialog = new JDialog_productos(marco, true);
-        //JDialog_Modificar dialog_2 = new JDialog_Modificar(marco, true);
         Jframeproductos Jframe = new Jframeproductos(marco, true);
         JframeModificar Jframe2= new JframeModificar(marco,true);
         Consultas consulta = new Consultas();
@@ -160,6 +149,7 @@ public class login extends javax.swing.JFrame {
         Controlador controlador = new Controlador(pro,consulta,marco,canasta,Jframe,Jframe2);
         controlador.iniciar();
         marco.setVisible(true);
+        dispose();
             
         }else{
             JOptionPane.showMessageDialog(this,"Usuario / Contraseña Incorrecta");
@@ -177,7 +167,7 @@ public class login extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }

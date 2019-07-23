@@ -86,6 +86,7 @@ public class Consultas extends Conexion {
             ps.setInt(4,p.getMayorista());
             ps.setInt(5,p.getPacifico());
             ps.setInt(6,p.getCodigo());
+            
             ps.execute();
             return true;
         } catch (SQLException e) {
@@ -118,6 +119,7 @@ public class Consultas extends Conexion {
                 p.setCaserita(Integer.parseInt(rs.getString("caserita")));//caserita
                 p.setMayorista(Integer.parseInt(rs.getString("mayorista")));//mayorista
                 p.setPacifico(Integer.parseInt(rs.getString("pacifico")));//pacifco
+                p.setValor(Integer.parseInt(rs.getString("valor")));
                 list_pro.add(p);
             }
             return list_pro;
