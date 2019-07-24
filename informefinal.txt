@@ -168,7 +168,7 @@ Las compras para el inventario de “La Rojita” se realizan generalmente en 4 prov
 \caption{Logo Distribuidora "Gigante del Pacífico"}
 \end{figure}
 
-BLABLABLABLABLABLA
+Una vez descrito gran parte del contexto en el cuál trabajaremos, nos adentramos a realizar una visión más detallada de como estará constituido gran parte del software que realizaremos para cumplir con la solución de la problemática ya mencionada.
 \clearpage
 \section{\underline{Plan General}}
 \subsection{Ámbito}
@@ -306,18 +306,132 @@ Esta sección comentara futuras mejoras al sistema, que podrán analizarse e imple
 \item Cómo ya mencionamos nuestra propuesta una vez cumplida la meta a llegar, será el de implementar otros productos que se comercializan en el local comercial, por ejemplo, tipos de Abarrotes, Helados, etc.
 \item Además, otro tema será el de agregar distintos conceptos vistos en el curso de Diseño y Análisis de Algoritmos, que no fueron integrados a este software debido al tiempo acotado que disponemos para llegar a un buen término de este; Uno de ellos son los Grafos, los cuales nos permitirían obtener de forma ideal la ruta más óptima que deberá hacer el administrador del Minimarket cuando necesite obtener productos en los distintos proveedores en los cuáles deberá comprar.
 \end{itemize}
+\clearpage
 
-\section{Planificación}
-\subsection{Actividades}
-
-\subsection{Descripción de Procesos}
 
 
 \section{Procesos}
 
+En en el siguiente punto se describirá lo realizado durante el transcurso y/o desarrollo de todo el proyecto que realizamos para el laboratorio del curso de Diseño y Análisis de Algoritmos. 
 \subsection{Modelo}
+La base de nuestro software consta de una problemática que fue mencionada en el comienzo de este informe, por lo que básicamente se puede generalizar, en que nuestra idea se basa en un problema de optimización, en el cuál mostraremos la solución a la que logramos llegar.\\
+La forma en como abordamos nuestra idea lo separaremos en varios puntos para destacar cada uno de ellos.
+\begin{enumerate}
+\item Una vez analizado completamente la idea que se nos ocurrió, es decir, buscamos las problemáticas que se nos podrían haber planteado una vez que empecemos a realizar nuestro proyecto o durante él transcurso de este; Nos propusimos a realizar lo siguiente.
+\item Primeramente nos propusimos a buscar distinta información en varias fuentes confiables, que estuvieran relacionado con los problemas de optimización en distintas áreas con sus respectivas soluciones óptimas, es decir en general nos informamos aún más sobre la teoría de optimización.
+
+\item Para posteriormente obtener todos los datos que fueron facilitados por el administrador del Minimarket ``La Rojita'', ya que así podremos trabajar con la base de datos de los productos bebestibles que posee este local comercial.
+
+\item Una vez concluida la parte de informarnos, llevamos a la practica la búsqueda del algoritmo que nos será útil para realizar y cumplir con él propósito que esta destinado nuestro software.
+\end{enumerate}
 
 
 \subsection{Solución}
+
+Como sabemos, básicamente la solución de esta problemática ya mencionada, será la creación de un software que le permita indicar al administrador del local comercial, la mejor manera de optimizar el recurso disponible, para así realizar la compra de los productos que necesita él Minimarket para el abastecimiento de su inventario.\\
+A continuación se detallan algunos puntos de forma muy general de como abordamos la solución a la problemática que ya se ha mencionado durante él transcurso del informe.
+
+\begin{enumerate}
+\item Unimos conceptos para luego llevarlos a la practica.
+\item Modificación de la Base de datos de los productos del local comercial, ya que solamente serán productos Bebestibles.
+\item Creación de la primera interfaz, que será la ventana principal donde se podrá realizar la optimización.
+\item Creación de los componentes que nos permitirán el funcionamiento correcto para poder realizar dicha optimización.
+\item Implementar el algoritmo (KP, Knapsack problem algorithm) a nuestra GUI realizada.
+\end{enumerate}
+
+
+\section{Planificación}
+En la siguiente sección se describirá el tiempo que destinamos para cada uno de los distintos puntos, es decir, detallaremos las fechas que fueron relevantes a la hora de construir el software con sus respectivos documentación.
+\subsection{Actividades}
+\begin{itemize}
+
+\item Con fecha 26 de Junio del 2019 - Plantear Idea del Proyecto.
+\item Con fecha 26 de Junio del 2019 - Entrega de Documento: 
+\subitem{Plan General: 
+Software Optimización de Productos para Minimarket ``La Rojita''.}
+\item Con fecha 3 de Julio del 2019 - Entrega de Documento: 
+\subitem {Requerimientos(Funcionales y no Funcionales):
+Software Optimización de Productos para Minimarket ``La Rojita''; además opcionalmente documento de Temporización.}
+\item Con fecha 10 de Julio del 2019 - Exposición del primer Estado de Avance del proyecto. 
+\item Con fecha 17 de Julio del 2019 - Exposición del segundo Estado de Avance del proyecto. 
+
+\item Con fecha 24 de Julio del 2019 - Entrega de Documento: 
+\subitem {Informe General:
+Software Optimización de Productos para Minimarket ``La Rojita''\\\textit{\underline{``Best Buy''}}.}
+
+\item Con fecha 24 de Julio del 2019 - Exposición del Informe General, además del proyecto final que tiene por nombre {\textit{\underline{``Best Buy.''}}}
+    
+\end{itemize}
+
+\subsection{Descripción de Procesos}
+\begin{itemize}
+\item Con fecha 8-9 de Junio diálogo sobre varias ideas que se nos ocurrieron, para posteriormente pulir y escoger solo una de ellas. 
+    
+ \item Con fecha 15-16 de Junio idea completamente analizada y generada. 
+        
+\item Con fecha 22-23 de Junio planteamiento de la idea al profesor(Erick Luciano Castillo Bastías), la cuál fue aceptada por él.
+        
+\item Con fecha 23-24-25 de Junio del 2019 creación del documento:
+\subitem{Plan General: 
+Software Optimización de Productos para Minimarket ``La Rojita''; Desarrollando la idea del proyecto.}
+
+\item Con fecha 1-2 de Julio del 2019 creación del documento:
+\subitem {Requerimientos(Funcionales y no Funcionales):
+Software Optimización de Productos para Minimarket ``La Rojita''; además opcionalmente documento de Temporización.} 
+
+\item Con fecha 5-6 de Julio del 2019 creación de las clases principales que utilizaremos para nuestro programa.
+
+\item Con fecha 7-8-9 de Julio del 2019 Comienzo proceso de desarrollo de programación del software. 
+\subitem {Conexión a base de datos, con tabla de productos de Minimarket ``La Rojita''.}
+\subitem{ Desarrollo frame(ventana) principal de nuestro software.}
+        
+\item Con fecha 12-13-14 de Julio del 2019 Continuación proceso de desarrollo de programación del software.
+\subitem {Desarrollo de distintos componentes que están dentro del software\\ (botones: Agregar, Buscar, Eliminar),(Tablas: Tabla de Productos, Tabla a Optimizar).}  
+
+\item Con fecha 15-16 de Julio del 2019 Continuación proceso de desarrollo de programación del software.
+\subitem {Desarrollo de la técnica algorítmica ``Problemas de optimización y algoritmos avaros(greedy)'', utilizando él algoritmo (KP, Knapsack problem algorithm) para realizar la optimización de la tabla de productos.}
+        
+        
+\item Con fecha 21-22-23 de Julio del 2019 Termino proceso de desarrollo de programación del software.
+\subitem {Desarrollo y finalización del software, realización de distintos extras que fueron agregados, por ejemplo, exportar la tabla la cuál fue optimizada.}        
+        
+\end{itemize}
+
+
+
+
+
+\section{Conclusión}
+
+
+\section{Referencias Web}
+
+\addcontentsline{toc}{subsection}{Referencias} 
+
+\begin{thebibliography}{X}
+\bibitem{Baz} \textsc{Diseño y Análisis de Algoritmos. (DAA-2009)--Dr. Eric Jeltsch F.}
+\textit{PDF Diseño y Análisis de Algoritmos},3 Técnicas algoritmos 2019
+
+\bibitem{Baz} \textsc{E78. INGENIERÍA DEL SOFTWARE
+5º CURSO DE INGENIERÍA INFORMÁTICA
+2000-2001,}
+\textit{Especificación de Requisitos Software según
+el estándar de IEEE 830}, Departamento de Informática
+Universitario Jaume I.
+
+\bibitem{Baz} \textsc{Introduction to algorithms} y \textsc{H.D. Sherali},
+\textit{Thomas H. Cormen  [et al.].—2nd ed}
+
+\bibitem{Baz} \textsc{Algoritmo genético para el problema logístico de
+asignación de la mochila (Knapsack Problem)
+}
+\textit{Gladys Bonilla Enríquez, Diana Sánchez Partida,
+Santiago Omar Caballer Morales
+Universidad Popular Autónoma del Estado de Puebla A.C., Puebla,
+Puebla, México}
+
+
+\end{thebibliography}
+
 
 \end{document}
